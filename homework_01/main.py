@@ -20,6 +20,21 @@ EVEN = "even"
 PRIME = "prime"
 
 
+def is_prime(*args):
+    """
+    функция принимает список чисел
+    и возвращает список простых чисел из выборки
+    """
+    result = []
+    for i in args:
+        if i == 1 or i == 0: continue
+        else:
+            for prev_numbers in range(2, i):
+                if i % prev_numbers == 0: break
+            else:
+                result.append(i)
+    return result
+
 def filter_numbers(*args, types):
     """
     функция, которая на вход принимает список из целых чисел,
@@ -31,11 +46,12 @@ def filter_numbers(*args, types):
     >>> filter_numbers([2, 3, 4, 5], EVEN)
     <<< [2, 4]
     """
-    if types == "ODD": return [arg for arg in args if arg%2 != 0]
-    if types == "EVEN": return [arg for arg in args if arg%2 == 0]
+    if types == ODD:
+        return list(filter(lambda x: x % 2, args))
+    if types == EVEN:
+        return list(filter(lambda x: x % 2 == 0, args))
+    if types == PRIME:
+        return is_prime(*args)
     else:
-    	for arg in args:
-    		i = arg
-    		while i >= 1:
-    			
+        return "Option must be in ['odd', 'even', 'prime']"
     
