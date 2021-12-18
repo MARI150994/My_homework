@@ -35,7 +35,7 @@ def is_prime(*args):
                 result.append(i)
     return result
 
-def filter_numbers(*args, types):
+def filter_numbers(list_numbers, types):
     """
     функция, которая на вход принимает список из целых чисел,
     и возвращает только чётные/нечётные/простые числа
@@ -47,11 +47,11 @@ def filter_numbers(*args, types):
     <<< [2, 4]
     """
     if types == ODD:
-        return list(filter(lambda x: x % 2, args))
+        return list(filter(lambda x: x % 2, list_numbers))
     if types == EVEN:
-        return list(filter(lambda x: x % 2 == 0, args))
+        return list(filter(lambda x: x % 2 == 0, list_numbers))
     if types == PRIME:
-        return is_prime(*args)
+        return is_prime(*list_numbers)
     else:
         return "Option must be in ['odd', 'even', 'prime']"
     
