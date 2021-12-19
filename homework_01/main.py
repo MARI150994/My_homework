@@ -27,13 +27,16 @@ def is_prime(*args):
     """
     result = []
     for i in args:
-        if i == 1 or i == 0: continue
+        if i == 1 or i == 0:
+            continue
         else:
             for prev_numbers in range(2, i):
-                if i % prev_numbers == 0: break
+                if i % prev_numbers == 0:
+                    break
             else:
                 result.append(i)
     return result
+
 
 def filter_numbers(list_numbers, types):
     """
