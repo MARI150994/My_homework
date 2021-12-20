@@ -1,0 +1,53 @@
+class User:
+
+    def __init__(self, name: str = None, surname: str = None, mail_addr: str = None, password=None):
+        self.name = name
+        self.surname = surname
+        self.addr = mail_addr
+        self.pas = password
+        self.pets = []
+
+    def __repr__(self):
+        return f"Владелец: {self.name} {self.surname}, количество животных: {len(self.pets)}"
+
+    @property
+    def pas(self):
+        return self._pas
+
+    # Password must have lenght > 5 symbol and contain only letters and numbers
+    @pas.setter
+    def pas(self, value):
+        if value == "12345":
+            print("Password is too easy!")
+        elif value.isalnum() and len(value) >= 5:
+            self._pas = value
+        elif len(value) < 5:
+            print("Password must contain at least 5 characters!")
+        else:
+            print("Password must contain only letters and numbers!")
+
+
+class Pet:
+
+    def __init__(self, name: str = None, breed: str = None, birth_date: str = None, owner: object = None):
+        self.name = name
+        self.breed = breed
+        self.date = birth_date
+        self.owner = owner
+        owner.pets.append(self)
+
+    def __repr__(self):
+        return f"Тип животного: {self.breed}, кличка: {self.name}, дата рождения: {self.date}"
+
+
+user1 = User('Peter', "Smith", "drfr@mail.ru", "12345r")
+user2 = User('Sam', "Lee", "my_mail@mail.ru", "121212")
+user3 = User('Maria', "Utkina", "mari_18@mail.ru", "11hhhh")
+rabbit_peter = Pet('Peter', 'white rabbit', '12-12-12', owner=user1)
+dog_friend = Pet('Friend', 'dog', '10-10-10', owner=user1)
+cat_lazy = Pet('Lazy', 'black cat', '12-12-10', owner=user1)
+dog_bowl = Pet('Bowl', 'dog', '08-09-13', owner=user2)
+cat_strip = Pet('Strip', 'striped cat', '01-01-01', owner=user3)
+
+for item in [user1, user2, user3]:
+    print(item, item.pets)
