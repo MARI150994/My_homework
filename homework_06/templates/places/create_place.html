@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Создание записи
+{% endblock %}
+
+{% block content %}
+        <form action="" method="post">
+        {{ form.hidden_tag() }}
+            <div class="container">
+                {% if form.errors %}
+                    {% for field, messages in form.errors.items() %}
+                        <div class="alert alert-danger">
+                            {{ form[field].label }}: {{ ', '.join(messages) }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+              <div class="form-group">
+                  {{ form.name_place.label }}
+                  {{ form.name_place(class="form-control") }}
+              </div>
+
+              <div class="form-group">
+                  {{ form.description.label }}
+                  {{ form.description(class="form-control") }}
+              </div>
+
+              <div class="form-group">
+                  {{ form.category.label }}
+                  {{ form.category(class="form-control") }}
+              </div>
+
+              <div class="form-group">
+                  {{ form.city.label }}
+                  {{ form.city(class="form-control") }}
+              </div>
+
+              <div class="form-group">
+                  {{ form.rate.label }}
+                  {{ form.rate(class="form-control") }}
+              </div>
+
+              <div class="container mt-3"><button type="submit" class="btn btn-primary">Submit</button></div>
+            </div>
+        </form>
+{% endblock %}

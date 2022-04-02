@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Регистрация
+{% endblock %}
+{% block content %}
+    <form action="" method="post">
+    {{ form.hidden_tag() }}
+        <div class="container">
+            {% if form.errors %}
+                {% for field, messages in form.errors.items() %}
+                    <div class="alert alert-danger">
+                        {{ form[field].label }}: {{ ', '.join(messages) }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+          <div class="form-group">
+              {{ form.username.label }}
+              {{ form.username(class="form-control") }}
+              {% for error in form.username.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+              {% endfor %}
+          </div>
+
+          <div class="form-group">
+              {{ form.email.label }}
+              {{ form.email(class="form-control") }}
+              {% for error in form.email.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+              {% endfor %}
+          </div>
+
+          <div class="form-group">
+              {{ form.password1.label }}
+              {{ form.password1(class="form-control") }}
+              {% for error in form.password1.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+              {% endfor %}
+          </div>
+
+          <div class="form-group">
+              {{ form.password2.label }}
+              {{ form.password2(class="form-control") }}
+              {% for error in form.password2.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+              {% endfor %}
+          </div>
+
+          <div class="container mt-3"><button type="submit" class="btn btn-primary">Submit</button></div>
+
+        </div>
+    </form>
+{% endblock %}

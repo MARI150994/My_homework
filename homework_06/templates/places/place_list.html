@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Все места
+{% endblock %}
+{% block content %}
+    {% if places %}
+        {% for place in places %}
+            <div class="container">
+                <div class="card mb-5 mt-3" style="width: 18rem">
+                  <div class="card-body" style="background-color: aquamarine">
+                    <h5 class="card-title">{{ place.name_place }}</h5>
+                    <p class="card-text">{{ place.description|truncate(100) }}</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{{ url_for('places_app.places_by_category', cat_id=place.category_id) }}">{{ place.category }}</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ url_for('places_app.places_by_city', city_id=place.city_id) }}">{{ place.city }}</a>
+                        </li>
+                      </ul>
+                    <a href="{{ url_for('places_app.place_detail', place_id=place.id) }}" class="btn btn-primary">Читать</a>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="container mt-3">
+            <h3>По данным параметрам запроса записи отсутствуют</h3>
+        </div>
+    {% endif %}
+{% endblock %}

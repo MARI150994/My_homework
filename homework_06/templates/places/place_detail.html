@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Все места
+{% endblock %}
+{% block content %}
+    {% if place %}
+{#        {% if current_user.confirmed %}#}
+            <div class="container mt-3" style="width: 40em">
+                <div class="container mb-5">
+                    <h3>{{ place.name_place }}</h3>
+                </div>
+                <div class="container mb-3">
+                    <p>{{ place.description}}</p>
+                </div>
+                <div class="container mb-3">
+                    <p>Дата создания поста: {{ place.created.strftime('%d-%m-%Y %H:%M') }}</p>
+                </div>
+                <div class="container mb-3">
+                    <p>Рейтинг: {{ place.rate}}</p>
+                </div>
+            </div>
+{#        {% else %}#}
+{#            <div class="container mb-5">#}
+{#                <h3>Для просмотра вам необходимо подтвердить свой email</h3>#}
+{#            </div>#}
+{#        {% endif %}#}
+    {% else %}
+        <div class="container mt-3">
+            <h3>Такой записи не существует</h3>
+        </div>
+    {% endif %}
+{% endblock %}
