@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, redirect, url_for
 from flask_login import login_required, current_user
 
-from homework_06.forms.places import AddPlaceForm
-from homework_06.models.all_models import Place, Category, City
-from homework_06.models.database import db
+from forms.places import AddPlaceForm
+from models.all_models import Place, Category, City
+from models.database import db
 
 places_app = Blueprint('places_app', __name__)
 

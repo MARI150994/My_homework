@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, SelectField, FloatField
 from wtforms.validators import InputRequired, Length, NumberRange, ValidationError
 
-from homework_06.models import Place
+from models import Place
 
 
 class AddPlaceForm(FlaskForm):

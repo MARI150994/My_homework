@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY ./requirements.txt .
 RUN python3 -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
@@ -16,4 +16,4 @@ RUN chmod +x prestart.sh
 ENTRYPOINT ["bash", "prestart.sh"]
 
 EXPOSE 8000
-CMD python app.py
+CMD python3 app.py

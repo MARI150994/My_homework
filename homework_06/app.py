@@ -6,13 +6,13 @@ from flask_mail import Mail, Message
 from flask_migrate import Migrate
 from itsdangerous import URLSafeTimedSerializer, BadData
 
-from homework_06.forms.user_auth import UserLoginForm, UserRegistrationForm
-from homework_06.models.database import db
-from homework_06.models import User
-from homework_06.views.places import places_app
+from forms.user_auth import UserLoginForm, UserRegistrationForm
+from models.database import db
+from models import User
+from views.places import places_app
 
 app = Flask(__name__)
-CONFIG_OBJECT_PATH = "homework_06.config.{}".format(getenv("CONFIG_NAME", "DevelopmentConfig"))
+CONFIG_OBJECT_PATH = "config.{}".format(getenv("CONFIG_NAME", "DevelopmentConfig"))
 app.config.from_object(CONFIG_OBJECT_PATH)
 
 login_manager = LoginManager()

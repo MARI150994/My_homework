@@ -12,11 +12,24 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data/ # persist data even if container shuts down
 
+  app_prod:
+    build:
+      context: .
+      dockerfile: docker-build/Dockerfile
+    environment:
+      CONFIG_NAME: ProductionConfig
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://user:password@pg2/test_flask
+    ports:
+      - '5000:80'
+    depends_on:
+      - pg2
+
   app_dev:
     build:
       context: .
       dockerfile: ./Dockerfile
     environment:
+      CONFIG_NAME: DevelopmentConfig
       SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://user:password@pg2/test_flask
     ports:
       - '8000:8000'
