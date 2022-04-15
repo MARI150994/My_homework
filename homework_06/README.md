@@ -3,6 +3,5 @@
 Регистрация пользователя и подтверждение регистрации по почту (Flask-Login, Flask-Mail)
 База данных PostgreSQL 
 Формы WTForms
-Docker, Docker-compose
 
 Для запуска docker-compose ap --build app_prod
