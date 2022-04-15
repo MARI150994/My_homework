@@ -1,1 +1,1 @@
-FastAPI пример тестового небольшоно API
+FastAPI simple task
