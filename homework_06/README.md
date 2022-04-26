@@ -4,4 +4,4 @@
 База данных PostgreSQL 
 Формы WTForms
 
-Для запуска docker-compose ap --build app_prod
+Для запуска docker-compose up --build app_prod
