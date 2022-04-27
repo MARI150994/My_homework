@@ -1,2 +1,2 @@
 # My_homework
-for Homework Otus
+for practice in Python3 and frameworks.
